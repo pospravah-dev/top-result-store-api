@@ -1,6 +1,5 @@
 package handlers;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import models.ResultEntry;
@@ -9,13 +8,10 @@ import storages.TopResultStore;
 import java.io.IOException;
 import java.util.List;
 
-public class UserInfoHandler implements HttpHandler {
-    private final TopResultStore store;
-    private final ObjectMapper mapper = new ObjectMapper();
-
+public class UserInfoHandler extends Handler implements HttpHandler {
 
     public UserInfoHandler(TopResultStore store) {
-        this.store = store;
+        super(store);
     }
 
     @Override
